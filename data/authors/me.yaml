@@ -1,0 +1,143 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Eric Zuo
+  given: Chenghao
+  family: Zuo
+  alternate: Eric Zuo
+  pronunciation: ''
+  pronouns: ''
+postnominals: []
+status:
+  icon: ''
+role: BMath Computer Science student at the University of Waterloo
+bio: |
+  Eric Zuo is a Computer Science student in the University of Waterloo's Bachelor of Mathematics program. He works on competitive programming, mathematics, full-stack web platforms, and AI-assisted developer tools.
+
+affiliations:
+  - name: University of Waterloo
+    url: https://uwaterloo.ca/
+
+links:
+  - icon: at-symbol
+    url: mailto:chenghaozuo18@gmail.com
+    label: Email
+  - icon: brands/github
+    url: https://github.com/EricZzzz-sleep
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/chenghao-zuo
+
+interests:
+  - Competitive Programming
+  - Algorithms and Data Structures
+  - Full-stack Web Development
+  - LLM Applications
+  - Mathematics
+
+education:
+  - degree: BMath in Computer Science
+    institution: University of Waterloo
+    start: 2026-09-01
+    summary: Expected September 2026.
+  - degree: Secondary School
+    institution: University Hill Secondary School
+    start: 2021-09-01
+    end: 2026-06-30
+    summary: |
+      Senior GPA: 97%.
+
+experience:
+  - role: Codeforces Candidate Master
+    org: Codeforces
+    start: 2026-06-01
+    summary: |
+      Achieved Candidate Master rank on Codeforces. Developed strong skills in data structures, graph algorithms, dynamic programming, mathematical problem solving, contest debugging, and solving under strict time constraints.
+    tags:
+      - Algorithms
+      - Competitive Programming
+      - Problem Solving
+  - role: Stanford University Mathematics Camp (SUMaC)
+    org: Stanford University
+    start: 2025-06-01
+    end: 2025-06-30
+    summary: |
+      Studied advanced undergraduate-level mathematics including abstract algebra, combinatorics, and number theory. Completed rigorous proof-based problem sets and collaborated with students from competitive international backgrounds.
+    tags:
+      - Mathematics
+      - Proofs
+      - Number Theory
+  - role: Problem Setter and Tester
+    org: 'DMOJ: Modern Online Judge'
+    start: 2025-02-01
+    summary: |
+      Designed and tested competitive programming problems involving algorithms and data structures. Created input generators, validators, and stress tests to ensure correctness and edge-case robustness, and collaborated with contest organizers on problem quality and editorial clarity.
+    tags:
+      - Problem Setting
+      - Testing
+      - DMOJ
+
+skills:
+  - name: Programming Languages
+    items:
+      - label: Python
+        level: 5
+      - label: C++
+        level: 5
+      - label: Java
+        level: 4
+      - label: JavaScript
+        level: 4
+      - label: HTML
+        level: 4
+  - name: Tools & Technologies
+    items:
+      - label: Git
+        level: 5
+      - label: Linux
+        level: 4
+      - label: Docker
+        level: 4
+      - label: Django
+        level: 4
+      - label: REST APIs
+        level: 4
+      - label: OpenAI API
+        level: 4
+  - name: AI & Workflow
+    items:
+      - label: LLM application development
+        level: 4
+      - label: Prompt engineering
+        level: 4
+      - label: AI-assisted software development
+        level: 5
+      - label: API integration
+        level: 4
+
+languages:
+  - name: English
+    level: 5
+  - name: Chinese
+    level: 5
+
+awards:
+  - title: Canadian Mathematical Olympiad Participant
+    awarder: CMO
+    date: '2026-01-01'
+  - title: Canada Representative
+    awarder: Asian Pacific Mathematical Olympiad
+    date: '2026-01-01'
+  - title: USACO Gold Division
+    awarder: USACO
+    date: '2026-01-01'
+  - title: Gold Champion
+    awarder: Canadian Open Mathematics Challenge
+    date: '2026-01-01'
+  - title: Honorable Mention
+    awarder: USAJMO
+    date: '2024-01-01'
+  - title: Other Awards
+    awarder: CCC, Euclid, AIME
+    date: '2026-01-01'
+    summary: Top 5% in the Canadian Computing Competition; two-time Euclid Top 20; Top 1% AIME.

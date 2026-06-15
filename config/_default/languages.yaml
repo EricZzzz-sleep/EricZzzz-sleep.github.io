@@ -1,0 +1,29 @@
+# Languages
+en:
+  label: EN
+  locale: en-us
+  contentDir: content/en
+  weight: 1
+
+zh:
+  label: 中
+  locale: zh-Hans
+  contentDir: content/zh
+  weight: 2
+  title: 左承灏
+  params:
+    hugoblox:
+      identity:
+        name: 左承灏
+        description: 左承灏的个人网站，展示项目、经历、奖项与写作。
+  menu:
+    main:
+      - name: 简介
+        url: /
+        weight: 10
+      - name: 经历
+        url: experience/
+        weight: 20
+      - name: 项目
+        url: projects/
+        weight: 30
