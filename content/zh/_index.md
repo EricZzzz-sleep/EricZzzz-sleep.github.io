@@ -14,7 +14,7 @@ sections:
         <section class="home-hero">
           <div class="hero-copy">
             <p class="eyebrow">计算机科学 · 算法 · AI 工具</p>
-            <h1>左承灏</h1>
+            <h1>左承昊</h1>
             <p class="hero-role">滑铁卢大学数学学士计算机科学方向学生。</p>
             <p class="hero-summary">我喜欢构建面向实际需求的软件工具，方向包括课程规划、数学学习、竞技编程、全栈系统与 LLM 辅助开发工作流。</p>
             <div class="hero-actions">

@@ -57,12 +57,62 @@ sections:
         </section>
     design:
       columns: '1'
-  - block: resume-awards
+  - block: markdown
     content:
-      title: Awards
-      username: me
-  - block: resume-languages
-    content:
-      title: Languages
-      username: me
+      title: ''
+      subtitle: ''
+      text: |-
+        <section class="experience-awards-languages">
+          <div class="awards-panel">
+            <p class="section-kicker">Recognition</p>
+            <h1>Awards</h1>
+            <div class="resume-award-list">
+              <article class="resume-award-card">
+                <h2>Canadian Mathematical Olympiad Participant</h2>
+                <span>CMO · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>Canada Representative</h2>
+                <span>Asian Pacific Mathematical Olympiad · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>USACO Gold Division</h2>
+                <span>USACO · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>Gold Champion</h2>
+                <span>Canadian Open Mathematics Challenge · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>Honorable Mention</h2>
+                <span>USAJMO · 2024</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>Other Awards</h2>
+                <span>CCC, Euclid, AIME · 2026</span>
+                <p>Top 5% in the Canadian Computing Competition; two-time Euclid Top 20; Top 1% AIME.</p>
+              </article>
+            </div>
+          </div>
+          <aside class="languages-panel" aria-label="Languages">
+            <p class="section-kicker">Languages</p>
+            <h1>Languages</h1>
+            <div class="language-list">
+              <article class="language-card">
+                <h2>English</h2>
+                <span>Fluent</span>
+              </article>
+              <article class="language-card">
+                <h2>Chinese</h2>
+                <span>Fluent</span>
+              </article>
+              <article class="language-card">
+                <h2>Spanish</h2>
+                <span>Intermediate</span>
+              </article>
+            </div>
+          </aside>
+        </section>
+    design:
+      columns: '1'
 ---

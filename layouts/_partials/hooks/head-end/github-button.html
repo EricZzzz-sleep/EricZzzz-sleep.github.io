@@ -1,4 +1,96 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeSelect = document.querySelector('select[onchange*="data-theme-pack"]');
+    if (!themeSelect) return;
+
+    const isChinesePage = document.documentElement.lang.toLowerCase().startsWith('zh');
+    const themes = [
+      { value: 'default', label: 'Slate', labelZh: '板岩', color: '#6366f1' },
+      { value: 'marine', label: 'Marine', labelZh: '海洋', color: '#0ea5e9' },
+      { value: 'matcha', label: 'Matcha', labelZh: '抹茶', color: '#16a34a' },
+      { value: 'solar', label: 'Solar', labelZh: '日光', color: '#f59e0b' },
+      { value: 'dracula', label: 'Night', labelZh: '夜色', color: '#a855f7' },
+    ];
+    const getThemeLabel = (theme) => (isChinesePage ? theme.labelZh : theme.label);
+    const allowedValues = new Set(themes.map((theme) => theme.value));
+    const savedTheme = localStorage.getItem('hb-theme-pack');
+    const activeTheme = allowedValues.has(savedTheme) ? savedTheme : 'default';
+
+    themeSelect.innerHTML = themes
+      .map((theme) => `<option value="${theme.value}">${getThemeLabel(theme)}</option>`)
+      .join('');
+    themeSelect.classList.add('ez-theme-select');
+    themeSelect.value = activeTheme;
+    document.documentElement.setAttribute('data-theme-pack', activeTheme);
+    localStorage.setItem('hb-theme-pack', activeTheme);
+
+    const themeWrap = themeSelect.parentElement;
+    if (themeWrap) {
+      themeWrap.classList.add('ez-theme-wrap');
+      themeSelect.classList.add('ez-native-theme-select');
+
+      const picker = document.createElement('div');
+      picker.className = 'ez-theme-picker';
+      picker.innerHTML = `
+        <button class="ez-theme-button" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="ez-theme-swatch" aria-hidden="true"></span>
+          <span class="ez-theme-label"></span>
+        </button>
+        <div class="ez-theme-menu" role="listbox"></div>
+      `;
+      themeWrap.appendChild(picker);
+
+      const button = picker.querySelector('.ez-theme-button');
+      const label = picker.querySelector('.ez-theme-label');
+      const swatch = picker.querySelector('.ez-theme-swatch');
+      const menu = picker.querySelector('.ez-theme-menu');
+
+      const setTheme = (value) => {
+        themeSelect.value = value;
+        document.documentElement.setAttribute('data-theme-pack', value);
+        localStorage.setItem('hb-theme-pack', value);
+        const theme = themes.find((item) => item.value === themeSelect.value) || themes[0];
+        swatch.style.background = theme.color;
+        label.textContent = getThemeLabel(theme);
+        menu.querySelectorAll('.ez-theme-option').forEach((option) => {
+          const isSelected = option.dataset.theme === value;
+          option.setAttribute('aria-selected', String(isSelected));
+        });
+      };
+
+      menu.innerHTML = themes
+        .map((theme) => `
+          <button class="ez-theme-option" type="button" role="option" data-theme="${theme.value}">
+            <span class="ez-theme-swatch" style="background:${theme.color}" aria-hidden="true"></span>
+            <span>${getThemeLabel(theme)}</span>
+          </button>
+        `)
+        .join('');
+
+      setTheme(activeTheme);
+
+      button.addEventListener('click', () => {
+        const isOpen = picker.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      menu.addEventListener('click', (event) => {
+        const option = event.target.closest('.ez-theme-option');
+        if (!option) return;
+        setTheme(option.dataset.theme);
+        picker.classList.remove('is-open');
+        button.setAttribute('aria-expanded', 'false');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (picker.contains(event.target)) return;
+        picker.classList.remove('is-open');
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+</script>
 <style>
   :root {
     --ez-ink: #0f172a;
@@ -24,6 +116,117 @@
     padding-bottom: 3.5rem !important;
   }
 
+  .ez-theme-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0.18rem 0.42rem !important;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 0.45rem;
+    background: rgba(255, 255, 255, 0.62);
+  }
+
+  .dark .ez-theme-wrap {
+    border-color: rgba(248, 250, 252, 0.18);
+    background: rgba(15, 23, 42, 0.36);
+  }
+
+  .ez-native-theme-select {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .ez-theme-picker {
+    position: relative;
+  }
+
+  .ez-theme-button,
+  .ez-theme-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 0;
+    background: transparent;
+    color: var(--hb-color-header-fg);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+
+  .ez-theme-button {
+    min-width: 5.95rem;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .ez-theme-menu {
+    position: absolute;
+    top: calc(100% + 0.42rem);
+    right: 0;
+    z-index: 60;
+    display: none;
+    min-width: 8.5rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 0.45rem;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.14);
+  }
+
+  .dark .ez-theme-menu {
+    border-color: rgba(248, 250, 252, 0.18);
+    background: rgba(15, 23, 42, 0.96);
+  }
+
+  .ez-theme-picker.is-open .ez-theme-menu {
+    display: grid;
+    gap: 0.12rem;
+  }
+
+  .ez-theme-option {
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.35rem 0.45rem;
+    border-radius: 0.32rem;
+    text-align: left;
+  }
+
+  .ez-theme-option:hover,
+  .ez-theme-option[aria-selected="true"] {
+    background: rgba(15, 23, 42, 0.07);
+  }
+
+  .dark .ez-theme-option:hover,
+  .dark .ez-theme-option[aria-selected="true"] {
+    background: rgba(248, 250, 252, 0.1);
+  }
+
+  .ez-theme-swatch {
+    width: 0.82rem;
+    height: 0.82rem;
+    flex: none;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 0.12rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  }
+
+  .ez-theme-select {
+    min-width: 5.1rem;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: var(--hb-color-header-fg) !important;
+    font-size: 0.84rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+  }
+
   #section-markdown .max-w-prose,
   #section-content-collection .container {
     width: min(94vw, 76rem) !important;
@@ -32,7 +235,8 @@
 
   .home-hero,
   .home-section-grid,
-  .experience-split {
+  .experience-split,
+  .experience-awards-languages {
     width: min(94vw, 76rem);
     margin: 0 auto;
   }
@@ -339,7 +543,9 @@
   }
 
   .experience-panel,
-  .skills-panel {
+  .skills-panel,
+  .awards-panel,
+  .languages-panel {
     border: 1px solid var(--ez-border);
     border-radius: 0.75rem;
     box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
@@ -357,7 +563,9 @@
   }
 
   .experience-panel h1,
-  .skills-panel h1 {
+  .skills-panel h1,
+  .awards-panel h1,
+  .languages-panel h1 {
     margin: 0;
     color: var(--ez-ink);
     font-size: clamp(1.8rem, 3vw, 2.45rem);
@@ -411,45 +619,93 @@
     margin-top: 0.75rem;
   }
 
-  #section-resume-awards {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-  }
-
-  #section-resume-awards > div {
-    width: min(92vw, 58rem) !important;
-    max-width: min(92vw, 58rem) !important;
-  }
-
-  #section-resume-awards .mb-6.text-3xl {
-    margin-bottom: 1rem !important;
-    color: var(--ez-ink);
-    font-size: clamp(1.25rem, 2vw, 1.55rem) !important;
-  }
-
-  #section-resume-awards .w-full.flex.flex-col.gap-6 {
+  .experience-awards-languages {
     display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.35rem;
+    align-items: stretch;
   }
 
-  #section-resume-awards .w-full.p-6 {
-    padding: 0.85rem 1rem !important;
-    border-color: #dbe7f0 !important;
-    border-radius: 0.55rem !important;
-    box-shadow: none !important;
+  .awards-panel {
+    background: #fbfdff;
+    padding: clamp(1.35rem, 3vw, 2rem);
   }
 
-  #section-resume-awards h5 {
-    margin-bottom: 0.35rem !important;
-    font-size: 1rem !important;
-    line-height: 1.25 !important;
+  .languages-panel {
+    background: var(--ez-panel);
+    padding: clamp(1.35rem, 3vw, 2rem);
   }
 
-  #section-resume-awards .text-sm {
-    margin-bottom: 0 !important;
-    font-size: 0.82rem !important;
-    line-height: 1.35 !important;
+  .resume-award-list {
+    display: grid;
+    gap: 0.75rem;
+    max-height: 22rem;
+    margin-top: 1.25rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 0.35rem;
+    scrollbar-color: var(--ez-accent) #e2e8f0;
+    scrollbar-width: thin;
+  }
+
+  .resume-award-list::-webkit-scrollbar {
+    width: 0.55rem;
+  }
+
+  .resume-award-list::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 999px;
+  }
+
+  .resume-award-list::-webkit-scrollbar-thumb {
+    background: var(--ez-accent);
+    border-radius: 999px;
+  }
+
+  .resume-award-card,
+  .language-card {
+    border: 1px solid #dbe7f0;
+    border-radius: 0.55rem;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.95rem 1rem;
+  }
+
+  .resume-award-card {
+    border-left: 3px solid var(--ez-accent);
+  }
+
+  .language-list {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.25rem;
+  }
+
+  .language-card {
+    border-left: 3px solid var(--ez-accent-2);
+  }
+
+  .resume-award-card h2,
+  .language-card h2 {
+    margin: 0;
+    color: var(--ez-ink);
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .resume-award-card span,
+  .language-card span {
+    display: inline-flex;
+    margin-top: 0.35rem;
+    color: var(--ez-muted);
+    font-size: 0.86rem;
+    line-height: 1.35;
+  }
+
+  .resume-award-card p {
+    margin: 0.45rem 0 0;
+    color: #334155;
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   #section-content-collection .mb-6.text-3xl {
@@ -479,20 +735,16 @@
   @media (max-width: 900px) {
     .home-hero,
     .home-section-grid,
-    .experience-split {
+    .experience-split,
+    .experience-awards-languages {
       grid-template-columns: 1fr;
       width: min(92vw, 42rem);
     }
 
     #section-markdown .max-w-prose,
-    #section-content-collection .container,
-    #section-resume-awards > div {
+    #section-content-collection .container {
       width: min(92vw, 42rem) !important;
       max-width: min(92vw, 42rem) !important;
-    }
-
-    #section-resume-awards .w-full.flex.flex-col.gap-6 {
-      grid-template-columns: 1fr;
     }
   }
 </style>

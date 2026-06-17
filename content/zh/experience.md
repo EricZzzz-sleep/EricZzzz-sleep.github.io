@@ -54,12 +54,62 @@ sections:
         </section>
     design:
       columns: '1'
-  - block: resume-awards
+  - block: markdown
     content:
-      title: 奖项
-      username: me
-  - block: resume-languages
-    content:
-      title: 语言
-      username: me
+      title: ''
+      subtitle: ''
+      text: |-
+        <section class="experience-awards-languages">
+          <div class="awards-panel">
+            <p class="section-kicker">荣誉</p>
+            <h1>奖项</h1>
+            <div class="resume-award-list">
+              <article class="resume-award-card">
+                <h2>加拿大数学奥林匹克参赛者</h2>
+                <span>CMO · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>加拿大代表</h2>
+                <span>亚太数学奥林匹克 · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>USACO Gold Division</h2>
+                <span>USACO · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>金牌冠军</h2>
+                <span>加拿大公开数学挑战赛 · 2026</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>荣誉提名</h2>
+                <span>USAJMO · 2024</span>
+              </article>
+              <article class="resume-award-card">
+                <h2>其他奖项</h2>
+                <span>CCC、Euclid、AIME · 2026</span>
+                <p>加拿大计算机竞赛前 5%；两次 Euclid 全球前 20；AIME 前 1%。</p>
+              </article>
+            </div>
+          </div>
+          <aside class="languages-panel" aria-label="语言">
+            <p class="section-kicker">语言</p>
+            <h1>语言</h1>
+            <div class="language-list">
+              <article class="language-card">
+                <h2>英语</h2>
+                <span>流利</span>
+              </article>
+              <article class="language-card">
+                <h2>中文</h2>
+                <span>流利</span>
+              </article>
+              <article class="language-card">
+                <h2>西班牙语</h2>
+                <span>中级</span>
+              </article>
+            </div>
+          </aside>
+        </section>
+    design:
+      columns: '1'
 ---

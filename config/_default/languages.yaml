@@ -10,12 +10,12 @@ zh:
   locale: zh-Hans
   contentDir: content/zh
   weight: 2
-  title: 左承灏
+  title: 左承昊
   params:
     hugoblox:
       identity:
-        name: 左承灏
-        description: 左承灏的个人网站，展示项目、经历、奖项与写作。
+        name: 左承昊
+        description: 左承昊的个人网站，展示项目、经历、奖项与写作。
   menu:
     main:
       - name: 简介
