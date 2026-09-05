@@ -13,6 +13,7 @@ sections:
       text: |-
         <section class="home-hero">
           <div class="hero-copy">
+            <img class="hero-avatar" src="/uploads/bio-raccoon.jpg" alt="Illustration of a raccoon using a laptop" width="658" height="658" decoding="async">
             <p class="eyebrow">Computer Science · Algorithms · AI Tools</p>
             <h1>Eric Zuo</h1>
             <p class="hero-role">BMath Computer Science student at the University of Waterloo.</p>
