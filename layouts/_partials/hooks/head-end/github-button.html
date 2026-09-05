@@ -4,21 +4,19 @@
     const themeSelect = document.querySelector('select[onchange*="data-theme-pack"]');
     if (!themeSelect) return;
 
-    const isChinesePage = document.documentElement.lang.toLowerCase().startsWith('zh');
     const themes = [
-      { value: 'default', label: 'Slate', labelZh: '板岩', color: '#6366f1' },
-      { value: 'marine', label: 'Marine', labelZh: '海洋', color: '#0ea5e9' },
-      { value: 'matcha', label: 'Matcha', labelZh: '抹茶', color: '#16a34a' },
-      { value: 'solar', label: 'Solar', labelZh: '日光', color: '#f59e0b' },
-      { value: 'dracula', label: 'Night', labelZh: '夜色', color: '#a855f7' },
+      { value: 'default', label: 'Slate', color: '#6366f1' },
+      { value: 'marine', label: 'Marine', color: '#0ea5e9' },
+      { value: 'matcha', label: 'Matcha', color: '#16a34a' },
+      { value: 'solar', label: 'Solar', color: '#f59e0b' },
+      { value: 'dracula', label: 'Night', color: '#a855f7' },
     ];
-    const getThemeLabel = (theme) => (isChinesePage ? theme.labelZh : theme.label);
     const allowedValues = new Set(themes.map((theme) => theme.value));
     const savedTheme = localStorage.getItem('hb-theme-pack');
     const activeTheme = allowedValues.has(savedTheme) ? savedTheme : 'default';
 
     themeSelect.innerHTML = themes
-      .map((theme) => `<option value="${theme.value}">${getThemeLabel(theme)}</option>`)
+      .map((theme) => `<option value="${theme.value}">${theme.label}</option>`)
       .join('');
     themeSelect.classList.add('ez-theme-select');
     themeSelect.value = activeTheme;
@@ -52,7 +50,7 @@
         localStorage.setItem('hb-theme-pack', value);
         const theme = themes.find((item) => item.value === themeSelect.value) || themes[0];
         swatch.style.background = theme.color;
-        label.textContent = getThemeLabel(theme);
+        label.textContent = theme.label;
         menu.querySelectorAll('.ez-theme-option').forEach((option) => {
           const isSelected = option.dataset.theme === value;
           option.setAttribute('aria-selected', String(isSelected));
@@ -63,7 +61,7 @@
         .map((theme) => `
           <button class="ez-theme-option" type="button" role="option" data-theme="${theme.value}">
             <span class="ez-theme-swatch" style="background:${theme.color}" aria-hidden="true"></span>
-            <span>${getThemeLabel(theme)}</span>
+            <span>${theme.label}</span>
           </button>
         `)
         .join('');

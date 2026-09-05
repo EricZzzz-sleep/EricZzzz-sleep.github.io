@@ -23,8 +23,8 @@ sections:
             <div class="experience-list">
               <article class="experience-entry">
                 <span>June 2026</span>
-                <h2>Codeforces Candidate Master</h2>
-                <p>Achieved Candidate Master rank on Codeforces, building strength in data structures, graph algorithms, dynamic programming, mathematical problem solving, contest debugging, and time-constrained execution.</p>
+                <h2>Codeforces Master</h2>
+                <p>Achieved Master rank on Codeforces, building strength in data structures, graph algorithms, dynamic programming, mathematical problem solving, contest debugging, and time-constrained execution.</p>
               </article>
               <article class="experience-entry">
                 <span>June 2025</span>

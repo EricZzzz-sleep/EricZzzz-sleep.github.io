@@ -5,7 +5,7 @@
 
 # Website name (set in params.yaml under hugoblox.identity.name)
 title: 'Eric Zuo'
-# Website URL. Keep root-relative so local and deployed language switching stays on the same host.
+# Website URL. Keep root-relative for local and deployed builds.
 baseURL: '/'
 
 ############################
@@ -13,7 +13,6 @@ baseURL: '/'
 ############################
 
 defaultContentLanguage: en
-hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
 

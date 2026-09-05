@@ -39,7 +39,7 @@ education:
   - degree: BMath in Computer Science
     institution: University of Waterloo
     start: 2026-09-01
-    summary: Expected September 2026.
+    summary: Sep 2026 - Now
   - degree: Secondary School
     institution: University Hill Secondary School
     start: 2021-09-01
@@ -48,11 +48,11 @@ education:
       Senior GPA: 97%.
 
 experience:
-  - role: Codeforces Candidate Master
+  - role: Codeforces Master
     org: Codeforces
     start: 2026-06-01
     summary: |
-      Achieved Candidate Master rank on Codeforces. Developed strong skills in data structures, graph algorithms, dynamic programming, mathematical problem solving, contest debugging, and solving under strict time constraints.
+      Achieved Master rank on Codeforces. Developed strong skills in data structures, graph algorithms, dynamic programming, mathematical problem solving, contest debugging, and solving under strict time constraints.
     tags:
       - Algorithms
       - Competitive Programming

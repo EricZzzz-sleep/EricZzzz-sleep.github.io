@@ -34,7 +34,7 @@ sections:
                   <h2>University of Waterloo</h2>
                   <p>BMath in Computer Science</p>
                 </div>
-                <span>Expected Sep 2026</span>
+                <span>Sep 2026 - Now</span>
               </article>
               <article class="education-item">
                 <div>
