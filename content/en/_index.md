@@ -17,7 +17,7 @@ sections:
             <p class="eyebrow">Computer Science · Algorithms · AI Tools</p>
             <h1>Eric Zuo</h1>
             <p class="hero-role">BMath Computer Science student at the University of Waterloo.</p>
-            <p class="hero-summary">I build practical software for course planning and mathematics learning, with a focus on competitive programming, full-stack systems, and LLM-assisted workflows.</p>
+            <p class="hero-summary">I build practical software for course planning, with a focus on competitive programming, full-stack systems, and LLM-assisted workflows.</p>
             <div class="hero-actions">
               <a class="btn-primary" href="/uploads/chenghao-zuo-cv-en.pdf"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>Download CV</a>
               <nav class="hero-socials" aria-label="Social links">
@@ -59,7 +59,7 @@ sections:
           <div class="info-panel">
             <p class="section-kicker">Focus</p>
             <h2>What I work on</h2>
-            <p>I like building tools where algorithms, product thinking, and AI workflows meet. My current projects include UWChoose for Waterloo course planning and The Math Repo for competitive mathematics learning.</p>
+            <p>I like building tools where algorithms, product thinking, and AI workflows meet. My current work includes UWChoose for Waterloo course planning.</p>
             <div class="chip-row">
               <span>Algorithms</span>
               <span>Competitive Programming</span>
