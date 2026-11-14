@@ -13,9 +13,17 @@ links:
     name: Live Demo
   - type: code
     url: https://github.com/CommunihacksSeed/Seedtrack
+  - type: video
+    url: https://www.youtube.com/watch?v=BklVxloR1kw
 ---
 
-SeedFlow was built at **CommuniHacks 2026** for **Youth in Food Systems** (a program of Seeds of Diversity Canada), in response to Challenge 3: Seed Request, Inventory and Order Management. It replaces a manual, spreadsheet-and-notes process with one connected workflow:
+SeedFlow was built at **CommuniHacks 2026** for **Youth in Food Systems** (a program of Seeds of Diversity Canada), in response to Challenge 3: Seed Request, Inventory and Order Management. It replaces a manual, spreadsheet-and-notes process with one connected workflow.
+
+## Demo
+
+{{< youtube BklVxloR1kw >}}
+
+## How it works
 
 **Request → Review → Inventory check → Approval (reserve) → Packing → Ready → Delivery**
 
