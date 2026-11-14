@@ -40,12 +40,6 @@ education:
     institution: University of Waterloo
     start: 2026-09-01
     summary: Sep 2026 - Now
-  - degree: Secondary School
-    institution: University Hill Secondary School
-    start: 2021-09-01
-    end: 2026-06-30
-    summary: |
-      Senior GPA: 97%.
 
 experience:
   - role: Codeforces Master

@@ -37,13 +37,6 @@ sections:
                 </div>
                 <span>Sep 2026 - Now</span>
               </article>
-              <article class="education-item">
-                <div>
-                  <h2>University Hill Secondary School</h2>
-                  <p>Secondary School Diploma</p>
-                </div>
-                <span>Senior GPA 97%</span>
-              </article>
             </div>
           </aside>
         </section>
@@ -59,7 +52,7 @@ sections:
           <div class="info-panel">
             <p class="section-kicker">Focus</p>
             <h2>What I work on</h2>
-            <p>I like building tools where algorithms, product thinking, and AI workflows meet. My current work includes UWChoose for Waterloo course planning.</p>
+            <p>I like building tools where algorithms, product thinking, and AI workflows meet. Most recently I built SeedFlow, a seed inventory and order management system, at CommuniHacks 2026.</p>
             <div class="chip-row">
               <span>Algorithms</span>
               <span>Competitive Programming</span>
