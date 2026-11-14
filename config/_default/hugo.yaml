@@ -5,8 +5,8 @@
 
 # Website name (set in params.yaml under hugoblox.identity.name)
 title: 'Eric Zuo'
-# Website URL. Keep root-relative for local and deployed builds.
-baseURL: '/'
+# Website URL (GitHub Pages). Local dev overrides this via `npm run dev`.
+baseURL: 'https://ericzzzz-sleep.github.io/'
 
 ############################
 ## LANGUAGE
